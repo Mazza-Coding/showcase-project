@@ -35,6 +35,10 @@ jobs:
         # Run mvn package from the root, specifying the pom file location
         # -B enables batch mode (non-interactive)
         run: mvn -B package --file back-end/pom.xml
+        env:
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       # Upload the build artifact (JAR file)
       - name: Upload JAR artifact

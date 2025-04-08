@@ -33,6 +33,10 @@ jobs:
       - name: Validate Backend (Compile & Test)
         # 'verify' runs phases up to 'verify' (includes compile, test)
         run: mvn -B verify --file back-end/pom.xml
+        env:
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       # --- Frontend Validation ---
       - name: Install Frontend Dependencies
